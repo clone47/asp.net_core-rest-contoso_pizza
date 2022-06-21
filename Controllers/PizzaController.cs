@@ -13,12 +13,18 @@ public class PizzaController : ControllerBase
     }
 
     // GET all action
-    [HttpGet]
+    [HttpGet(
+        "List", 
+        Name = "PizzaList"
+    )]
     public ActionResult<List<Pizza>> GetAll() =>
     PizzaService.GetAll();
 
     // GET by Id action
-    [HttpGet("{id}")]
+    [HttpGet(
+        "{id}",
+        Name = "PizzaDetails"
+    )]
     public ActionResult<Pizza> Get(int id)
     {
         var pizza = PizzaService.Get(id);
@@ -30,7 +36,10 @@ public class PizzaController : ControllerBase
     }
 
     // POST action
-    [HttpPost]
+    [HttpPost(
+        "Create",
+        Name = "AddNewPizza"
+    )]
     public IActionResult Create(Pizza pizza)
     {
         PizzaService.Add(pizza);
@@ -38,7 +47,10 @@ public class PizzaController : ControllerBase
     }
 
     // PUT action
-    [HttpPut("{id}")]
+    [HttpPut(
+        "{id}",
+        Name = "UpdatePizza"
+    )]
     public IActionResult Update(int id, Pizza pizza)
     {
         if (id != pizza.Id)
@@ -54,7 +66,10 @@ public class PizzaController : ControllerBase
     }
 
     // DELETE action
-    [HttpDelete("{id}")]
+    [HttpDelete(
+        "{id}",
+        Name = "DeletePizza"
+    )]
     public IActionResult Delete(int id)
     {
         var pizza = PizzaService.Get(id);
