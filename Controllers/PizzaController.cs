@@ -25,7 +25,7 @@ public class PizzaController : ControllerBase
 
     // GET by Id action
     [HttpGet(
-        "{id:length(2)}",
+        "{id:length(24)}",
         Name = "Pizza Details"
     )]
     public async Task<ActionResult<Pizza>> Get(string id)
@@ -53,7 +53,7 @@ public class PizzaController : ControllerBase
 
     // PUT action
     [HttpPut(
-        "{id:length(2)}",
+        "{id:length(24)}",
         Name = "Update Pizza"
     )]
     public async Task<IActionResult> Update(string id, Pizza updatedPizza)
@@ -72,7 +72,7 @@ public class PizzaController : ControllerBase
 
     // DELETE action
     [HttpDelete(
-        "{id:length(2)}",
+        "{id:length(24)}",
         Name = "Delete Pizza"
     )]
     public async Task<IActionResult> Delete(string id)
